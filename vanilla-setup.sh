@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 SERVER_PATH=$HOME/minecraft_server
 
@@ -34,9 +35,9 @@ if [ -z $VERSION ]; then
     exit 1
 fi
 
-sudo apt install update
+sudo apt update
 
-sudo apt install wget openjdk-8-jdk screen -y
+sudo apt install curl wget openjdk-8-jdk screen -y
 
 if [ -e $SERVER_PATH ]; then
     echo
@@ -48,6 +49,10 @@ mkdir $SERVER_PATH
 cp run.sh $SERVER_PATH
 cd $SERVER_PATH
 jar_url=$(curl https://mcversions.net/download/$VERSION | sed -r 's/^.*Server Jar[^\:]*\:\/\/([^\"]*).*$/http:\/\/\1/g')
+if [[ ! $jar_url =~ ^http://launcher\.mojang\.com[a-zA-Z0-9\/]*\.jar$ ]]; then
+    echo "Jar Url was found to be in the wrong format! $jar_url"
+    exit 1
+fi
 wget -O minecraft_server.jar $jar_url
 chmod +x minecraft_server.jar
 echo eula=true >> eula.txt
