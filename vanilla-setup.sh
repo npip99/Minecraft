@@ -1,4 +1,5 @@
 #!/bin/bash
+# Stop script if an error occurs
 set -e
 
 SERVER_PATH=$HOME/minecraft_server
