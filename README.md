@@ -36,6 +36,10 @@ my_modpack.zip
 │
 └───config
     │   forge.cfg
+    |   IC2.ini
+    |
+    └───buildcraft
+        | main.cfg
 ```
 
 Where each of the files have the following representations:
