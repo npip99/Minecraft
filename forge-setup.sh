@@ -132,8 +132,10 @@ if $IS_USING_MODPACK; then
     ./run.sh
 else
     # If we're not using a modpack, we'll just run forge to verify that things are working, and then we'll delete the world file.
+    # This will allow the user to populdate ./mods first
     echo stop | java -Xmx6144M -Xms1024M -jar forge_server.jar nogui
     rm -rf world
 fi
 
 cleanup()
+

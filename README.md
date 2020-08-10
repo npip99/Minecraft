@@ -30,7 +30,7 @@ If you would like to use versions other than 1.12.2, or if you would like to sav
 
 ```
 ./forge-setup.sh -m my_modpack.zip -d ~/my_modded_minecraft_server
-# Note - Only run in a container or using trusted or self-made modpack.zip, as this allows arbitrary execution from a third party
+# Note - Only run in a container or using a trusted/self-made modpack.zip, as this allows arbitrary execution from a third party
 ```
 
 ```
@@ -81,3 +81,4 @@ A replacement of the default server.properties file. This file is optional.
 ### config/*
 
 This will be used as the configuration directory before the server runs for the first time. This directory and any files within it are optional
+
