@@ -22,7 +22,7 @@ To create a new Forge minecraft server, you may run
 
 And this will use the 1.12.2 forge installer to create the server. Then you may put any desired mods into the `./mods` directory.
 
-If you would like to use versions other than 1.12.2, or if you would like to save custom modpacks for easy reuse, then you should create a .zip with the following directory structure:
+If you would like to use versions other than 1.12.2, or if you would like to save custom modpacks for easy reuse, then you should create a .zip with the following directory structure and use the following command:
 
 ```
 ./forge-setup.sh -m my_modpack.zip -d ~/my_modded_minecraft_server
