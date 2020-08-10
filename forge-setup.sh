@@ -1,4 +1,5 @@
-# Setop script if an error occurs
+#!/bin/bash
+# Stop script if an error occurs
 set -e
 
 # Setup tmp directory
