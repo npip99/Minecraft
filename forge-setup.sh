@@ -127,7 +127,13 @@ if $IS_USING_MODPACK && [ -e $MODPACK_PATH/mods.json ]; then
     cd ..
 fi
 
-echo stop | java -Xmx6144M -Xms1024M -jar forge_server.jar nogui
-rm -rf world
+if $IS_USING_MODPACK; then
+    # If we're using a modpack, then we're ready to go ahead and run the server
+    ./run.sh
+else
+    # If we're not using a modpack, we'll just run forge to verify that things are working, and then we'll delete the world file.
+    echo stop | java -Xmx6144M -Xms1024M -jar forge_server.jar nogui
+    rm -rf world
+fi
 
 cleanup()
