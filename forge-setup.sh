@@ -131,6 +131,3 @@ echo stop | java -Xmx6144M -Xms1024M -jar forge_server.jar nogui
 rm -rf world
 
 cleanup()
-
-./run.sh
-
