@@ -12,6 +12,10 @@ To create a new vanilla minecraft server, simply run
 
 This will create a server of the desired version in the given directory. It will presume that the directory does not exist yet and it will create the directory as needed.
 
+After the setup, the server will then be running in [GNU Screen](https://linuxize.com/post/how-to-use-linux-screen/). Hit `Ctrl+A, CTRL+D` to detach from the screen and allow it to run in the background. `screen -list` will show you all screens. `screen -r minecraft` will reconnect you to the screen. When you're connected, type `stop` to shutdown the server, or type any desired serverside command into the commandline.
+
+If you would like to run the program after exiting it, go to the directory that your minecraft server was installed into, and then type `./run.sh`. It will rerun and reopen the minecraft screen.
+
 ## Forge modpacks
 
 To create a new Forge minecraft server, you may run
@@ -20,7 +24,7 @@ To create a new Forge minecraft server, you may run
 ./forge-setup.sh -d ~/my_modded_minecraft_server
 ```
 
-And this will use the 1.12.2 forge installer to create the server. Then you may put any desired mods into the `./mods` directory.
+And this will use the 1.12.2 forge installer to create the server. Then you may put any desired mods into the `./mods` directory. You may then go to the root directory and type `./run.sh` to run the server.
 
 If you would like to use versions other than 1.12.2, or if you would like to save custom modpacks for easy reuse, then you should create a .zip with the following directory structure and use the following command:
 
