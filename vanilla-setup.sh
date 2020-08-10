@@ -48,8 +48,8 @@ fi
 mkdir $SERVER_PATH
 cp run.sh $SERVER_PATH
 cd $SERVER_PATH
-jar_url=$(curl https://mcversions.net/download/$VERSION | sed -r 's/^.*Server Jar[^\:]*\:\/\/([^\"]*).*$/http:\/\/\1/g')
-if [[ ! $jar_url =~ ^http://launcher\.mojang\.com[a-zA-Z0-9\/]*\.jar$ ]]; then
+jar_url=$(curl https://mcversions.net/download/$VERSION | sed -r 's/^.*(https:\/\/launcher\.mojang\.com[a-zA-Z0-9\/]*server\.jar).*$/\1/g')
+if [[ ! $jar_url =~ ^https://launcher\.mojang\.com[a-zA-Z0-9\/]*server\.jar$ ]]; then
     echo "Jar Url was found to be in the wrong format! $jar_url"
     exit 1
 fi
