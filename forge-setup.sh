@@ -11,7 +11,9 @@ function cleanup {
 
 trap cleanup EXIT
 
-SERVER_PATH=$HOME/forge_server
+function print_usage {
+    echo "Usage: $0 -d \$SERVER_DIRECTORY [-m \$MODPACK]"
+}
 
 while getopts "hm:d:" opt; do
   case ${opt} in
@@ -22,20 +24,24 @@ while getopts "hm:d:" opt; do
       ;;
     d )
       SERVER_PATH=$OPTARG
-      if [ -z $SERVER_PATH ]; then
-          echo "Server directory -d must not be empty!"
-      fi
       ;;
     h )
-      echo "Usage: $0 [-m \$MODPACK] [-d \$SERVER_DIRECTORY]"
+      print_usage
       exit 0
       ;;
     \? )
       echo "Invalid Option: -$OPTARG" 1>&2
+      print_usage
       exit 1
       ;;
   esac
 done
+
+if [ -z $SERVER_PATH ]; then
+    echo "Server directory -d must be provided!"
+    print_usage
+    exit 1
+fi
 
 if [ -e $SERVER_PATH ]; then
     echo

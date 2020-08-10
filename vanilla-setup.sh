@@ -2,10 +2,8 @@
 # Stop script if an error occurs
 set -e
 
-SERVER_PATH=$HOME/minecraft_server
-
-print_usage () {
-    echo "Usage: $0 [-v \$VERSION] [-d \$SERVER_DIRECTORY]"
+function print_usage {
+    echo "Usage: $0 -v \$VERSION -d \$SERVER_DIRECTORY"
 }
 
 while getopts "hv:d:" opt; do
@@ -15,9 +13,6 @@ while getopts "hv:d:" opt; do
       ;;
     d )
       SERVER_PATH=$OPTARG
-      if [ -z $SERVER_PATH ]; then
-          echo "Server directory -d must not be an empty string!"
-      fi
       ;;
     h )
       print_usage
@@ -31,7 +26,13 @@ while getopts "hv:d:" opt; do
 done
 
 if [ -z $VERSION ]; then
-    echo "Version number must be provided!"
+    echo "Version number -v must be provided!"
+    print_usage
+    exit 1
+fi
+
+if [ -z $SERVER_PATH ]; then
+    echo "Server directory -d must be provided!"
     print_usage
     exit 1
 fi
