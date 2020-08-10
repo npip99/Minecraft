@@ -25,7 +25,11 @@ And this will use the 1.12.2 forge installer to create the server. Then you may 
 If you would like to use versions other than 1.12.2, or if you would like to save custom modpacks for easy reuse, then you should create a .zip with the following directory structure:
 
 ```
-modpack.zip
+./forge-setup.sh -m my_modpack.zip -d ~/my_modded_minecraft_server
+```
+
+```
+my_modpack.zip
 │   modpack.conf   
 |   mods.json
 |   server.properties 
