@@ -21,9 +21,12 @@ while getopts "hm:d:" opt; do
       ;;
     d )
       SERVER_PATH=$OPTARG
+      if [ -z $SERVER_PATH ]; then
+          echo "Server directory -d must not be empty!"
+      fi
       ;;
     h )
-      echo "Usage: $0 [-m \$MODPACK] [-d \$DIRECTORY]"
+      echo "Usage: $0 [-m \$MODPACK] [-d \$SERVER_DIRECTORY]"
       exit 0
       ;;
     \? )
