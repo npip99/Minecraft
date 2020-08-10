@@ -9,8 +9,6 @@ if [ -e ~/minecraft_server ]; then
 fi
 
 mkdir ~/minecraft_server
-rm ~/minecraft_server/setup.sh
-rm ~/minecraft_server/run.sh
 cp setup.sh ~/minecraft_server
 cp run.sh ~/minecraft_server
 cd ~/minecraft_server
