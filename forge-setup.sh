@@ -22,5 +22,5 @@ mv forge*.jar forge_server.jar
 echo stop | java -Xmx6144M -Xms1024M -jar forge_server.jar nogui
 rm -rf world
 
-#./run.sh
+./run.sh
 
