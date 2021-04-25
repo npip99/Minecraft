@@ -118,7 +118,7 @@ if $IS_USING_MODPACK && [ -e $MODPACK_PATH/mods.json ]; then
     mkdir mods
     cd mods
     for row in $(cat $MODPACK_PATH/mods.json | jq -r '.[] | @base64'); do
-        _jq() {
+        function _jq {
             echo ${row} | base64 --decode | jq -r ${1}
         }
 	echo "Installing $(_jq '.name')"
@@ -137,5 +137,5 @@ else
     rm -rf world
 fi
 
-cleanup()
+cleanup
 
