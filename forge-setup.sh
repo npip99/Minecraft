@@ -91,7 +91,7 @@ if $IS_USING_MODPACK; then
 fi
 
 sudo apt update
-sudo apt install wget openjdk-8-jdk screen jq -y
+sudo apt install wget openjdk-8-jre screen jq -y
 
 mkdir $SERVER_PATH
 cp forge-run.sh $SERVER_PATH/run.sh
